@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Admin Menu
+{% endblock %}
+
+
+{% block main %}
+<h1>  <b> Admin Menu</b> </h1>
+<br>
+<form action="/usermanagement">
+    <button type="submit">User Mangement</button>
+</form><br><br>
+<form action="/changepassword">
+    <button type="submit">Change Admin Password</button>
+</form><br><br>
+<form action="/companyinfo">
+    <button type="submit">Change Company Info</button>
+</form><br><br>
+<form action="/locationmanagement">
+    <button type="submit">Location Managment</button>
+</form><br><br>
+<form action="/transactionsearch">
+    <button type="submit">Look up Transactions</button>
+</form><br><br>
+<form action="/about">
+    <button type="submit">About</button>
+</form>
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transfer
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Transfer </b></h1> <br>
+<p style="color:red">{{error}}</p>
+
+<form action = /transfer method="post">
+    <input list="locations" placeholder="origin location" name="origin" autocomplete="off">
+    <br> <br>
+    <input list="items" placeholder="item number" name="item" autocomplete="off">
+    <br> <br>
+    <input type="number" value=1 min=1 name="qty" autocomplete="off">
+    <br> <br>
+    <input  list="locations" placeholder="destination location" name="destination" autocomplete="off">
+    <br><br>
+    <button>Submit</button>
+</form>
+<br>
+<datalist id="locations">
+    {% for item in data %}
+        <option value="{{ item["location"] }}"></option>
+    {% endfor %}
+</datalist>
+
+<datalist id="items">
+    {% for item in items %}
+        <option value="{{ item["itemnumber"] }}"></option>
+    {% endfor %}
+</datalist>
+<br>
+{% endblock %}

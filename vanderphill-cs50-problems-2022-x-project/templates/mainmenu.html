@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main Menu
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Main Menu </b></h1> <br>
+
+
+<form action="/receiving">
+    <button type="submit">Receiving</button>
+</form>
+
+<form action="/transfer">
+    <button type="submit">Transfering</button>
+</form>
+<br><br>
+<form action="/schedulingmenu">
+    <button type="submit">Scheduling</button>
+</form>
+
+<form action="/pickingmenu">
+    <button type="submit">Picking</button>
+</form>
+<br><br>
+<form action="/shippingmenu">
+    <button type="submit">Shipping</button>
+</form>
+
+<form action="/lookup">
+    <button type="submit">Look up Item / Location</button>
+</form>
+<br><br>
+<form action="/transactionlog">
+    <button type="submit">Transaction Log</button>
+</form>
+<br><br>
+{% endblock %}

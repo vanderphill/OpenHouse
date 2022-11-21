@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Transaction Log
+{% endblock %}
+
+{% block main %}
+<p style="color:red">{{error}}</p>
+<h1><b> Transaction Log </b></h1> <br>
+
+<table class="table">
+    <thead style="color: #ffff00">
+        <tr>
+            <th>User</th>
+            <th>Date & Time</th>
+            <th>Transaction Type</th>
+            <th>Order Number</th>
+            <th>Item</th>
+            <th>qty</th>
+            <th>From Location</th>
+            <th>To Location</th>
+
+        </tr>
+    </thead>
+    <tbody style="color:white">
+        {% for data in data %}
+            <tr>
+                <td>{{ data["username"] }}</td>
+                <td>{{data["datetime"]}}</td>
+                <td>{{data["transaction_type"]}}</td>
+                <td>{{data["ordernumber"]}}</td>
+                <td>{{data["item"]}}</td>
+                <td>{{data["qty"]}}</td>
+                <td>{{data["loc_from"]}}</td>
+                <td>{{data["loc_to"]}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot></tfoot>
+</table>
+
+
+
+
+
+
+{% endblock %}

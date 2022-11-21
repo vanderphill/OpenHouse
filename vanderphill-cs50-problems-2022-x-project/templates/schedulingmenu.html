@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Scheduling menu
+{% endblock %}
+
+{% block main %}
+<p style="color:red">{{error}}</p>
+<h1><b>Scheduling menu </b></h1> <br>
+
+<form action="/neworder">
+    <button type="submit">Create New Order</button>
+</form>
+<br>
+<br>
+<h4 style="color: #ffff00">Open Orders</h4>
+<table class="table">
+    <thead style="color: #ffff00">
+        <tr>
+            <th>Order #</th>
+            <th>Custumer Name</th>
+            <th>status</th>
+            <th>edit</th>
+        </tr>
+    </thead>
+    <tbody style="color:white">
+        {% for order in orders %}
+            <tr>
+                <td>{{order["ordernum"]}}</td>
+                <td>{{order["name"]}}</td>
+                <td>{{order["status"]}}</td>
+                <td>
+                    <form action="/editorder" method="post">
+                        <input name="id" type="hidden" value="{{ order["ordernum"] }}">
+                        <input type="submit" value="edit">
+                    </form>
+
+
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock %}

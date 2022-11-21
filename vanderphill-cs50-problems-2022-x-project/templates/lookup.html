@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Item / Location Lookup
+{% endblock %}
+
+{% block main %}
+<p style="color:red">{{error}}</p>
+<h1><b> Item / Location Lookup </b></h1> <br>
+
+<p class="w">Enter item number , item name, or location</p>
+<form action="/table" method="POST">
+    <input list="stuff" name="thing" autocomplete="off"> <br><br>
+    <button type=submit> Search </button>
+</form>
+<datalist id="stuff">
+    {% for item in data %}
+    <option value="{{ item }}">
+    {% endfor %}
+</datalist>
+<br><br>
+{% endblock %}

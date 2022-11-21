@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    picking menu
+{% endblock %}
+
+{% block main %}
+<h1><b>Picking Menu </b></h1>
+<p style="color:red">{{error}}</p>
+
+
+    <br>
+<h4 style="color: #ffff00">Orders</h4>
+<table class="table">
+    <thead style="color: #ffff00">
+        <tr>
+            <th>Order Number</th>
+            <th># of items</th>
+            <th>Shipping date</th>
+            <th>status</th>
+            <th>pick</th>
+        </tr>
+    </thead>
+    <tbody style="color:white">
+        {% for order in ord %}
+            <tr>
+                <td>{{ order["ordernum"] }}</td>
+                <td>{{ order["qty"] }}</td>
+                <td>{{ order["shipdate"] }}</td>
+                <td>{{ order["status"] }}</td>
+                <td>
+                    <form action="/picking", method ="POST">
+                        <input name="ordernum" type="hidden" value="{{ order["ordernum"] }}">
+                        <input type="submit" value="Pick order">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

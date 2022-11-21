@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create New Order
+{% endblock %}
+
+{% block main %}
+<p style="color:red">{{error}}</p>
+<h1><b> Create New Order </b></h1>
+<br>
+<form action="/editorder" method="POST">
+    <input type="text" name="name" placeholder="customer name">
+    <input type="text" name="address" placeholder="customer address"><br><br>
+
+    <p class="w">shiping date</p>
+    <input type="date" name="shipdate"><br><br>
+    <select class="form-select mx-auto w-auto" name="shippinglocation">
+        <option disabled selected>Shipping Location</option>
+        {% for item in locations %}
+            <option value={{item}}>{{ item }}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit">Create New Order</button>
+</form>
+<br>
+<br>
+
+
+
+
+{% endblock %}

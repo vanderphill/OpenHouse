@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add location
+{% endblock %}
+
+
+{% block main %}
+<div style="color: #ffff88">
+<h1><b>SETUP </b></h1> <br>
+
+<h2> WELCOME!</h2>
+<p>THANK YOU for choosing OpenHouse Inventory Systems for your inventory needs. This system has been designed for small to medium businesses like yours, and we are thrilled to have your patronage.
+    Now that your system has been installed, the following guide will walk you through setting up and using this system. </p>
+<h2>Step One</h2>
+<h4>Change Admin Password</h4>
+<p>The default password for the admin account is “admin”. It is imperative that you change your password to something more secure. To change the admin password click <a href="/changepassword">here</a>
+    (you can also navigate to the “change password” in the admin menu).
+    <br>Enter the old password and your new password.
+    <b>Do not lose or forget your password.</b>
+    </p>
+<h2>Step Two</h2>
+<h4>Create Warehouse Space</h4>
+<p>There are two methods fro creating warehouse space. the first to <a href="/addlocation">create individual locations</a>, the second is to <a href="/addrack">create racks of locations</a>. both of these
+    methods can be found in the location management section in the Admin Menu  </p>
+
+<h5>Creating Locations</h5>
+    <p>locations can be used for both storage and shipping. for example for a special type of product that is tood big for a rack or can not go on a rack for some reason you can make a special location for
+    it(i.e. a silo, a refridgerator, a secured location or an outdoor location). it should also be used for shipping staaging locations. i.e. truck1, truck2, UPS, ect. <br><br> example warehouse layout<br></p>
+<br>
+    <img src="/static/warehouselayout.png" alt="example layout"  width="500" height="300">
+<br>
+
+<br>
+<h5>Creating Racks</h5>
+<p>when creating racks you will be asked for a rack number, the number of columns and the number of rows. racks may have upto 99 columns and upto 26 rows and you may create up to 99 racks. that is a possible 254826 locations.
+    rack location numbers are composed of the rack number, column number and row height indicated with a letter starting with 'A' (see example below)</p>
+<br>
+
+<img src="/static/racknumbering.bmp" alt="rack numbering" width="500" height="300">
+<br>
+<br>
+<h5>Removing Locations</h5>
+<p>both rack and non racks locations can be removed. make sure the loction is empty before deleting as this may result in the loss of inventory data. see example below where location 0103C has been removed. </p>
+<br>
+<img src="/static/irregularracknumbering.bmp" alt=""  width="500" height="300">
+<br><br><br>
+<h2>Step Three</h2>
+<h4>Add Users</h4>
+<p>To add users navigate to user management in the Admin Menu and click on <a href="/adduser">'Add User'</a> it will aask for a username and password. make sure only the user knows the password. </p>
+<h4>Remove Users</h4>
+<p>In the event an account needs to be disabled, navigate to <a href="/removeuser">remove user</a> in usermanagement and select the user from the drop down menu and click remove.
+    in the event that a password is lost or forgoten the admin will have to delete the users account and then re-create it.
+</p>
+<h2>Step Four</h2>
+<h4>Begin Operations</h4>
+<h4>Receiving</h4>
+<h4>Transfers</h4>
+<h4>Scheduling</h4>
+<h4>Picking Orders</h4>
+<h4>Shipping</h4>
+<h4>transaction logs</h4>
+<h4>item lookup</h4>
+<h4>location contents</h4>
+<h4>Scheduling</h4>
+</div>
+
+
+{% endblock %}

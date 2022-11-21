@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   add user
+{% endblock %}
+
+{% block main %}
+    <h1><b>Add User</b></h1>
+    <br>
+    <p style="color:red">{{error}}</p>
+
+    <div>
+    <form  method="post" action="/adduser" onkeydown="return event.key != 'Enter';">
+        <input type="text" placeholder="User Name" name="username" autocomplete="off">
+        <br>
+        <br>
+        <input type = "password" placeholder="Password" name="password" autocomplete="off">
+        <br>
+        <br>
+        <input type = "password" placeholder="Password" name="confirmation" autocomplete="off">
+        <br>
+        <br>
+        <button type="submit" onclick="return confirm('Are you sure?')">create user</button>
+    </form>
+</div>
+<br>
+{% endblock %}

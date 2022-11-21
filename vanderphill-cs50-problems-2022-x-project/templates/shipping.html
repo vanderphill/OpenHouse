@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Shipping
+{% endblock %}
+
+{% block main %}
+<h1><b>Shipping  </b></h1>
+<p style="color:red">{{error}}</p>
+
+<table class="w">
+    <tr>
+        <th>Shipping Location: </th>
+        <th> {{ info["location"] }} </th>
+    </tr>
+    <tr>
+        <th>order number: </th>
+        <th> {{ info["ordernum"] }} </th>
+    </tr>
+    <tr>
+        <th>customer name: </th>
+        <th> {{ info["name"] }} </th>
+    </tr>
+    <tr>
+        <th>customer address: </th>
+        <th> {{ info["address"] }} </th>
+    </tr>
+    <tr>
+        <th>shipping date: </th>
+        <th> {{ info["shipdate"] }} </th>
+    </tr>
+</table>
+
+    <br>
+<table class="table">
+    <thead style="color: #ffff00">
+        <tr>
+            <th>item Number</th>
+            <th>item Name</th>
+            <th>item desciption</th>
+            <th>qty</th>
+            <th>verfiy</th>
+        </tr>
+    </thead>
+    <tbody style="color:white">
+        {% for data in data %}
+            <tr>
+                <td> {{ data["itemnumber"] }} </td>
+                <td> {{ data["name"] }} </td>
+                <td> {{ data["description"] }} </td>
+                <td> {{ data["qty"] }}</td>
+                <td>
+                    <form action="/shipping", method ="POST">
+                        <input name="ordernum" type="hidden" value="{{ info["ordernum"] }}">
+                        <input name="itemid" type="hidden" value="{{ data["id"] }}">
+                        <input type="submit" value=" {{ data["verified"] }} "  {{ data["enabled"] }} style="background-color:{{ data["color"] }}; border-radius: 25px" >
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<form action="/shipping", method="POST">
+    <input name="ordernum" type="hidden" value="{{ info["ordernum"] }}">
+    <input name="ship" type="hidden" value="{{ info["ordernum"] }}">
+    <input type=submit  {{ ship["enabled"] }} style="border-radius: 25px;
+    background-color: {{ ship["color"] }};
+    border: none;
+    color:  yellow;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 250px" value="{{ ship["ship"]}}">
+</form>
+<br>
+<br>
+{% endblock %}

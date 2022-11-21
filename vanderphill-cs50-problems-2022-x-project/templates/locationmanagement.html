@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Location Management
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Location Management </b></h1> <br><br>
+<form action="/addrack">
+    <button type="submit">Add Rack</button>
+</form>
+<br><br>
+<form action="/addlocation">
+    <button type="submit">Add Location</button>
+</form>
+<br><br>
+<form action="/removelocation">
+    <button type="submit">Remove Location</button>
+</form>
+<br><br>
+
+
+{% endblock %}

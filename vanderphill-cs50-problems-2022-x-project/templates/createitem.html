@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Item
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Create Item </b></h1> <br><br>
+
+<form action = /createitem method="post">
+
+    <input type="text" placeholder="item number" name="number">
+    <br><br>
+    <input type="text" placeholder="item name" name="name">
+    <br><br>
+    <input type="text" placeholder="item description" name="description">
+    <br><br>
+    <input type="text" placeholder="item cost" name="cost">
+    <br><br>
+    <button>Submit</button>
+</form>
+<br>
+{% endblock %}

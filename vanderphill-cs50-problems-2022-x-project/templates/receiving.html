@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Receiving
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Receiving </b></h1> <br>
+<p style="color:red">{{error}}</p>
+<form action = /receiving method="post" style="color:yellow">
+    <select class="form-select mx-auto w-auto" name="location">
+        <option disabled selected>location</option>
+        {% for item in locations %}
+            <option value={{item}}>{{ item }}</option>
+        {% endfor %}
+    </select><br>
+    <input type="text" placeholder="item number" name="item">
+    <br>qty<br>
+    <input type="number" value=1 min=1 name="qty" autocomplete="off">
+    <br><br>
+    <button>Submit</button>
+</form>
+<br><br>
+{% endblock %}

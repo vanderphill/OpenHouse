@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Transaction Search
+{% endblock %}
+
+
+{% block main %}
+<h1>  <b>  Transaction Search</b> </h1>
+<br>
+<form action="/transactionlog", method="POST">
+
+    <input list="users" name="user" placeholder="username" autocomplete="off">
+    <br><br>
+    <input list="items" name="item" placeholder="item number" autocomplete="off">
+    <br><br>
+    <input list="locations" name="location" placeholder="location" autocomplete="off">
+    <br><br>
+    <button type="submit">Search</button>
+</form>
+<br><br>
+
+<datalist id="users">
+    {% for user in users %}
+        <option value="{{ user["username"] }}"></option>
+    {% endfor %}
+</datalist>
+
+<datalist id="items">
+    {% for item in items %}
+        <option value="{{ item["itemnumber"] }}"></option>
+    {% endfor %}
+</datalist>
+
+<datalist id="locations">
+    {% for location in locations %}
+        <option value="{{ location['location'] }}"></option>
+    {% endfor %}
+</datalist>
+
+{% endblock %}

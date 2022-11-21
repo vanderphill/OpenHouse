@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add location
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Add Location </b></h1>
+<br>
+<p style="color:red">{{error}}</p>
+<form action="/addlocation" method="post">
+    <input type = text name = "location" placeholder="new location id" autocomplete="off">
+    <select name="type">
+        <option disabled selected>location type</option>
+        <option>Receiving</option>
+        <option>Storage</option>
+        <option>Shipping</option>
+    </select>
+    <br><br>
+    <button type="submit">Create Location</button>
+</form>
+<br><br>
+{% endblock %}

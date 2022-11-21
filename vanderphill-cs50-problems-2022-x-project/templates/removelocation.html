@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Remove location
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Remove Location </b></h1>
+<br>
+<p style="color:red">{{error}}</p>
+<form action="/removelocation" method="post">
+    <input list="locations" name="location" placeholder=" Location id" autocomplete="off">
+    <br><br>
+    <button type="submit" onclick="return confirm('Are you sure? make sure all items are removed from this location before deleting it \n this action can not be undone')">Delete Location</button>
+</form>
+
+<datalist id="locations">
+    {% for item in data %}
+        <option value="{{ item["location"] }}"></option>
+    {% endfor %}
+</datalist>
+
+<br><br>
+{% endblock %}

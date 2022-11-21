@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   remove user
+{% endblock %}
+
+{% block main %}
+
+    <h1><b>Remove User</b></h1>
+    <br>
+    <p style="color:red">{{error}}</p>
+    <br>
+    <div>
+        <form  method="post" action="/removeuser" onkeydown="return event.key != 'Enter';">
+            <select class="form-select mx-auto w-auto" name="User">
+                <option disabled selected>User</option>
+                {% for item in users %}
+                    <option value={{item}}>{{ item }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+            <button type="submit" onclick="return confirm('Are you sure?')">remove user</button>
+        </form>
+    </div>
+    <br>
+{% endblock %}

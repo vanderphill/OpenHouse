@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Rack
+{% endblock %}
+
+
+{% block main %}
+<h1><b>Add Rack </b></h1>
+<br>
+<p style="color:red">{{error}}</p>
+<form action="/addrack" method="post">
+    <input type = text name = "racknumber" placeholder="new rack number" autocomplete="off">
+    <br><br>
+    <input type = text name = "columns" placeholder="number of columns" autocomplete="off">
+    <br><br>
+    <input type = text name = "rows" placeholder="number of rows" autocomplete="off">
+    <br><br>
+    <button type="submit">create rack</button>
+</form>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    picking
+{% endblock %}
+
+{% block main %}
+<h1><b>Picking </b></h1>
+<p style="color:red">{{error}}</p>
+
+<table class=center>
+    <tbody class="w">
+    <tr>
+        <td>order number:</td>
+        <td> {{ data["ordernum"] }} </td>
+    </tr>    <tr>
+        <td>location:</td>
+        <td> {{ data["location"] }} </td>
+    </tr>
+    <tr>
+        <td>Item:</td>
+        <td> {{ data["item"] }} </td>
+    </tr>
+    <tr>
+        <td>Qty: </td>
+        <td> {{ data["qty"] }} </td>
+    </tr>
+    <tr>
+        <td>shippping location: </td>
+        <td> {{ data["shippinglocation"] }} </td>
+    </tr>
+</tbody>
+</table>
+<br>
+
+<form action="/picking", method ="POST">
+    <input name="ordernum" type="hidden" value="{{ data["ordernum"] }}">
+    <input name="location" type="hidden" value="{{ data["location"] }}">
+    <input name="item" type="hidden" value="{{ data["item"] }}">
+    <input name="qty" type="hidden" value="{{ data["qty"] }}">
+    <input name="shippinglocation" type="hidden" value="{{ data["shippinglocation"] }}">
+    <button type="submit">pick item(s)</button>
+</form>
+
+<br><br>
+<!--
+<form>
+    <button name="skip">Skip</button>
+</form>
+-->
+{% endblock %}

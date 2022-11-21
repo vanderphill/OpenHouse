@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Change Company Info
+{% endblock %}
+
+{% block main %}
+    <h1><b> Company Info</b></h1>
+    <br>
+    <p style="color:red">{{error}}</p>
+
+    <p class="w"> Company Name: {{ info["name"] }} </p>
+    <p class="w"> Company Address: {{ info["address"] }} </p>
+    <p class="w"> Company Phone number: {{ info["phone"] }} </p>
+    <p class="w"> Company Website: {{ info["website"] }} </p>
+    <p class="w"> Company Email: {{ info["email"] }} </p>
+    <p class="w"> Company Motto: {{ info["motto"] }} </p>
+    <!--img src="/static/logo.bmp" style="width:100px;height:100px;" alt="logo"-->
+
+
+
+    <div>
+    <form  method="post" action="/companyinfo">
+<!--
+        <h5 style="color:white">click here to upload your companies logo</h5>
+       <input type="file" name="logo" style="color:white">
+        <p class="w">.png .jpeg .jpg .bmp</p>
+-->
+        <br>
+        <input type = "text" placeholder="Company Name" name="name" autocomplete="off">
+        <br>
+        <br>
+        <input type = "text" placeholder="Address" name="address" autocomplete="off">
+        <br>
+        <br>
+        <input type = "text" placeholder="Phone Number" name="phone" autocomplete="off">
+        <br>
+        <br>
+        <input type = "text" placeholder="Website URL" name="website" autocomplete="off">
+        <br>
+        <br>
+        <input type = "text" placeholder="Customer service email address" name="email" autocomplete="off">
+        <br>
+        <br>
+        <input type = "text" placeholder="Company Motto" name="motto" autocomplete="off">
+        <br>
+        <br>
+        <button type="submit">Submit Company Info</button>
+    </form>
+</div>
+<br>
+{% endblock %}

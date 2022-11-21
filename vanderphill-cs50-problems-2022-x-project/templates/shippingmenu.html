@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Shipping Menu
+{% endblock %}
+
+{% block main %}
+<h1><b>Shipping Menu </b></h1>
+<p style="color:red">{{error}}</p>
+
+
+    <br>
+<h4 style="color: #ffff00">Orders</h4>
+<table class="table">
+    <thead style="color: #ffff00">
+        <tr>
+            <th>Shipping Location</th>
+            <th>Order Number</th>
+            <th>Name</th>
+            <th># of items</th>
+            <th>Shipping date</th>
+            <th>status</th>
+            <th>button</th>
+        </tr>
+    </thead>
+    <tbody style="color:white">
+        {% for order in orders %}
+            <tr>
+                <td>{{ order["shiploc"] }}</td>
+                <td>{{ order["ordernum"] }}</td>
+                <td>{{ order["name"] }}</td>
+                <td>{{ order["items"] }}</td>
+                <td>{{ order["shipdate"] }}</td>
+                <td>{{ order["status"] }}</td>
+                <td>
+                    <form action="/shipping", method ="POST">
+                        <input name="ordernum" type="hidden" value="{{ order["ordernum"] }}">
+                        <input type="submit" value=" begin ">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
